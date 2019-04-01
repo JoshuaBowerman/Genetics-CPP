@@ -15,12 +15,13 @@
 #define NUMBER_ROUNDS 10
 
 class Instance {
+public:
     int generation = 0;
-    int score = 0;
+    float score = 0;
     bool chromosome[CHROMOSOME_SIZE];
 
 
-public:
+
     Instance breedWith(Instance partner);
     std::string toString();
     Instance();

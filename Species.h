@@ -8,7 +8,8 @@
 #include <xstring>
 #include "Instance.h"
 
-#define POPULATION_SIZE 50
+#define NUMBER_BREEDERS 16
+#define POPULATION_SIZE (((NUMBER_BREEDERS * NUMBER_BREEDERS) - NUMBER_BREEDERS) / 2)
 
 
 
@@ -21,13 +22,11 @@ public:
 
     Species();
     Species(std::string fileLocation);
-    void createGeneration();
     float getGenerationScore();
     void exportToFile(std::string fileLocation);
     void competeWith(Species opponent);
-
-    //TODO: Implement Species compete with single instance
     void competeWith(Instance opponent);
+    void buildNextGeneration();
 
 
 };

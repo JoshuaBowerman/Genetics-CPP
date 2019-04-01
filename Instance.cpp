@@ -48,6 +48,7 @@ Instance Instance::breedWith(Instance partner) {
     Instance child = Instance(c);
     child.mutateSelf();
     child.generation = generation + 1;
+    child.score = 0;
     return child;
 }
 
