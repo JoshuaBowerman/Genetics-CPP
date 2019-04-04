@@ -52,13 +52,13 @@ Instance Instance::breedWith(Instance partner) {
     return child;
 }
 
-void Instance::competeWith(Instance opponent) {
+void Instance::competeWith(Instance *opponent) {
     bool actionHistoryA[NUMBER_ROUNDS];
     bool actionHistoryB[NUMBER_ROUNDS];
     for (int round = 0; round < NUMBER_ROUNDS; round++) {
         if (round == 0) {
             actionHistoryA[round] = chromosome[0];
-            actionHistoryB[round] = opponent.chromosome[0];
+            actionHistoryB[round] = opponent->chromosome[0];
         } else {
             //Calculate offset
             int offset = (1 << round) - 1;  //  2 ^(round) - 1
@@ -73,7 +73,7 @@ void Instance::competeWith(Instance opponent) {
 
             //Commit actions
             actionHistoryA[round] = this->chromosome[offset + indexA];
-            actionHistoryB[round] = opponent.chromosome[offset + indexB];
+            actionHistoryB[round] = opponent->chromosome[offset + indexB];
         }
         //Calculate Scores
 
@@ -85,16 +85,16 @@ void Instance::competeWith(Instance opponent) {
          */
         if (actionHistoryA[round] && actionHistoryB[round]) {
             this->score -= 1;
-            opponent.score -= 1;
+            opponent->score -= 1;
         } else if (actionHistoryA[round] & !actionHistoryB[round]) {
             this->score -= 20;
-            opponent.score -= 0;
+            opponent->score -= 0;
         } else if (!actionHistoryA[round] & actionHistoryB[round]) {
             this->score -= 0;
-            opponent.score -= 20;
+            opponent->score -= 20;
         } else if (!actionHistoryA[round] & !actionHistoryB[round]) {
             this->score -= 10;
-            opponent.score -= 10;
+            opponent->score -= 10;
         }
     }
 }

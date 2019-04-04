@@ -8,11 +8,10 @@
 #define MEMORY_DEPTH 3
 #define CHROMOSOME_SIZE ((1 << (MEMORY_DEPTH + 1)) - 1)
 
+#define NUMBER_ROUNDS 10
 
 //Mutation rate is 1 / x
-#define MUTATION_RATE 10000
-
-#define NUMBER_ROUNDS 10
+#define MUTATION_RATE 1000
 
 class Instance {
 public:
@@ -27,7 +26,7 @@ public:
     Instance();
     Instance(std::string Source);
     void mutateSelf();
-    void competeWith(Instance opponent);
+    void competeWith(Instance *opponent);
 
 
 };

@@ -24,9 +24,11 @@ public:
     Species(std::string fileLocation);
     float getGenerationScore();
     void exportToFile(std::string fileLocation);
-    void competeWith(Species opponent);
-    void competeWith(Instance opponent);
+    void competeWith(Species *opponent);
+    void competeWith(Instance *opponent);
     void buildNextGeneration();
+    Instance getBest();
+    float getAverage();
 
 
 };
