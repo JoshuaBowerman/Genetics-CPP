@@ -11,7 +11,7 @@
 #define NUMBER_ROUNDS 10
 
 //Mutation rate is 1 / x
-#define MUTATION_RATE 1000
+#define MUTATION_RATE 10000
 
 class Instance {
 public:

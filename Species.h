@@ -5,7 +5,7 @@
 #ifndef GENETICS_SPECIES_H
 #define GENETICS_SPECIES_H
 
-#include <xstring>
+#include <string>
 #include "Instance.h"
 
 #define NUMBER_BREEDERS 16
